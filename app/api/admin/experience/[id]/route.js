@@ -3,6 +3,9 @@ const { prisma } = require("@/lib/prisma");
 const { requireAdmin } = require("@/lib/requireAdmin");
 const { experienceSchema } = require("@/lib/validation");
 
+const dynamic = "force-dynamic";
+const runtime = "nodejs";
+
 async function PUT(request, { params }) {
   const session = requireAdmin();
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -41,4 +44,4 @@ async function DELETE(request, { params }) {
   }
 }
 
-module.exports = { PUT, DELETE };
+module.exports = { dynamic, runtime, PUT, DELETE };
