@@ -221,6 +221,25 @@
 
   html.dark .clay-button-outline {
     background: rgba(38, 40, 44, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 7px 8px 18px rgba(0, 0, 0, 0.34),
+      -3px -3px 10px rgba(255, 255, 255, 0.04);
+  }
+
+  html.dark .clay-button-outline:hover {
+    box-shadow: 9px 11px 22px rgba(0, 0, 0, 0.4),
+      -3px -3px 10px rgba(255, 255, 255, 0.055);
+  }
+
+  html.dark .clay-button {
+    color: #fff8f0;
+    box-shadow: 7px 9px 18px rgba(232, 100, 60, 0.28),
+      -2px -2px 8px rgba(255, 121, 80, 0.08);
+  }
+
+  html.dark .clay-button:hover {
+    box-shadow: 9px 12px 22px rgba(232, 100, 60, 0.34),
+      -2px -2px 8px rgba(255, 121, 80, 0.1);
   }
 
   html.dark .theme-switch {
