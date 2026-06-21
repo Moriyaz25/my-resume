@@ -166,8 +166,8 @@
   html.dark .clay-sm {
     background: linear-gradient(145deg, #303033, #191b1f);
     border-color: rgba(255, 255, 255, 0.09);
-    box-shadow: 7px 8px 18px rgba(0, 0, 0, 0.32),
-      -4px -4px 12px rgba(255, 255, 255, 0.04);
+    box-shadow: 6px 7px 16px rgba(0, 0, 0, 0.34),
+      -2px -2px 7px rgba(255, 255, 255, 0.025);
   }
 
   html.dark .clay-tint-kiln {
@@ -219,6 +219,11 @@
   html.dark .clay-button:hover {
     box-shadow: 9px 12px 22px rgba(232, 100, 60, 0.34),
       -2px -2px 8px rgba(255, 121, 80, 0.1);
+  }
+
+  html.dark .shadow-clay-out-sm {
+    box-shadow: 5px 6px 14px rgba(0, 0, 0, 0.32),
+      -2px -2px 7px rgba(255, 255, 255, 0.025);
   }
 
 }
