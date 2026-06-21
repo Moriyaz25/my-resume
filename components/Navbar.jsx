@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -14,12 +14,25 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
+  };
 
   return (
     <header
@@ -53,6 +66,15 @@ export default function Navbar() {
           </a>
 
           <button
+            type="button"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            onClick={toggleTheme}
+            className="hidden md:inline-flex clay-sm h-11 w-11 items-center justify-center text-ink transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <button
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
             className="md:hidden p-2 rounded-clay-sm shadow-clay-out-sm"
@@ -80,6 +102,14 @@ export default function Navbar() {
             >
               Let's talk
             </a>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="clay-sm mt-2 flex items-center justify-center gap-2 px-4 py-3 font-body text-sm font-semibold text-ink"
+            >
+              {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+              {theme === "dark" ? "Light mode" : "Dark mode"}
+            </button>
           </div>
         )}
       </nav>

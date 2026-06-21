@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-canvas: 255 248 240;
+    --color-ink: 45 42 38;
+    --color-kiln: 232 100 60;
+    --color-kiln-dark: 201 78 41;
+    --color-sage: 107 143 113;
+    --color-lavender: 200 168 216;
+    --color-clay-shadow: 240 228 212;
+    --color-clay-light: 255 253 249;
+  }
+
+  html.dark {
+    --color-canvas: 20 22 25;
+    --color-ink: 246 238 228;
+    --color-kiln: 255 121 80;
+    --color-kiln-dark: 235 93 52;
+    --color-sage: 139 177 146;
+    --color-lavender: 210 179 226;
+    --color-clay-shadow: 45 39 35;
+    --color-clay-light: 38 40 44;
+    color-scheme: dark;
+  }
+
   * {
     @apply scroll-smooth;
   }
@@ -18,6 +41,17 @@
       radial-gradient(circle at 85% 55%, rgba(107, 143, 113, 0.11), transparent 38%),
       linear-gradient(135deg, #f8ede1 0%, #f2e2d0 48%, #eee5d8 100%);
     background-attachment: fixed;
+  }
+
+  html.dark body {
+    background-color: #141619;
+    background-image: radial-gradient(
+        circle at 18% 8%,
+        rgba(255, 121, 80, 0.17),
+        transparent 35%
+      ),
+      radial-gradient(circle at 82% 58%, rgba(139, 177, 146, 0.12), transparent 40%),
+      linear-gradient(135deg, #111316 0%, #1d1a19 50%, #15191a 100%);
   }
 
   /* Hide the native cursor only on devices with a fine pointer (mouse/trackpad)
@@ -119,5 +153,52 @@
 
   .section-eyebrow {
     @apply font-mono text-xs uppercase tracking-[0.2em] text-kiln/80 mb-3 block;
+  }
+
+  html.dark .clay {
+    background: linear-gradient(145deg, rgba(45, 42, 38, 0.96), rgba(25, 27, 30, 0.96));
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 12px 14px 28px rgba(0, 0, 0, 0.36),
+      -6px -6px 16px rgba(255, 255, 255, 0.04),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  html.dark .clay-sm {
+    background: linear-gradient(145deg, #303033, #191b1f);
+    border-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 7px 8px 18px rgba(0, 0, 0, 0.32),
+      -4px -4px 12px rgba(255, 255, 255, 0.04);
+  }
+
+  html.dark .clay-tint-kiln {
+    background: linear-gradient(145deg, rgba(94, 46, 32, 0.98), rgba(43, 31, 28, 0.98));
+    border-color: rgba(255, 121, 80, 0.28);
+  }
+
+  html.dark .clay-tint-sage {
+    background: linear-gradient(145deg, rgba(47, 70, 53, 0.98), rgba(28, 37, 31, 0.98));
+    border-color: rgba(139, 177, 146, 0.26);
+  }
+
+  html.dark .clay-tint-lavender {
+    background: linear-gradient(145deg, rgba(63, 49, 72, 0.98), rgba(33, 31, 39, 0.98));
+    border-color: rgba(210, 179, 226, 0.25);
+  }
+
+  html.dark .clay-pressed,
+  html.dark .clay-input {
+    background: rgb(var(--color-canvas) / 0.9);
+    box-shadow: inset 6px 6px 14px rgba(0, 0, 0, 0.34),
+      inset -4px -4px 10px rgba(255, 255, 255, 0.04);
+  }
+
+  html.dark .clay-tag {
+    background: rgba(38, 40, 44, 0.78);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.28);
+  }
+
+  html.dark .clay-button-outline {
+    background: rgba(38, 40, 44, 0.82);
   }
 }

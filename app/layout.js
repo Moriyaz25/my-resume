@@ -36,7 +36,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jbMono.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fraunces.variable} ${inter.variable} ${jbMono.variable}`}
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const storedTheme = localStorage.getItem("theme");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+                  document.documentElement.classList.add("dark");
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body>
         <CustomCursor />
         {children}

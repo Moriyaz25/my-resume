@@ -1,20 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-  ],
+  content: ["./app/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
-        canvas: "#FFF8F0",      // warm putty white — base background
-        ink: "#2D2A26",         // warm near-black — primary text
-        kiln: "#E8643C",        // kiln orange — primary accent
-        "kiln-dark": "#C94E29",
-        sage: "#6B8F71",        // sage clay — secondary accent (tags, success)
-        lavender: "#C8A8D8",    // muted lavender — admin-only accent
-        "clay-shadow": "#F0E4D4", // warm shadow tone for dual clay shadows
-        "clay-light": "#FFFDF9",
+        canvas: "rgb(var(--color-canvas) / <alpha-value>)",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        kiln: "rgb(var(--color-kiln) / <alpha-value>)",
+        "kiln-dark": "rgb(var(--color-kiln-dark) / <alpha-value>)",
+        sage: "rgb(var(--color-sage) / <alpha-value>)",
+        lavender: "rgb(var(--color-lavender) / <alpha-value>)",
+        "clay-shadow": "rgb(var(--color-clay-shadow) / <alpha-value>)",
+        "clay-light": "rgb(var(--color-clay-light) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "serif"],
@@ -27,12 +24,10 @@ module.exports = {
         "clay-lg": "3rem",
       },
       boxShadow: {
-        // Outset clay: object pressed up out of the canvas
         "clay-out":
           "8px 8px 16px rgba(45, 42, 38, 0.12), -6px -6px 14px rgba(255, 253, 249, 0.9)",
         "clay-out-sm":
           "4px 4px 10px rgba(45, 42, 38, 0.10), -3px -3px 8px rgba(255, 253, 249, 0.85)",
-        // Inset clay: pressed into the canvas (active/pressed states)
         "clay-in":
           "inset 6px 6px 12px rgba(45, 42, 38, 0.14), inset -4px -4px 10px rgba(255, 253, 249, 0.8)",
         "clay-hover":
