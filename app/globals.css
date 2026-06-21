@@ -185,6 +185,14 @@
     border-color: rgba(210, 179, 226, 0.25);
   }
 
+  html.dark .clay-sage {
+    background: linear-gradient(145deg, rgba(41, 58, 45, 0.96), rgba(24, 29, 26, 0.96));
+    border-color: rgba(139, 177, 146, 0.22);
+    box-shadow: 10px 12px 24px rgba(0, 0, 0, 0.36),
+      -4px -4px 12px rgba(255, 255, 255, 0.035),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
   html.dark .clay-pressed,
   html.dark .clay-input {
     background: rgb(var(--color-canvas) / 0.9);

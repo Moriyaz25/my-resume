@@ -41,7 +41,7 @@ export default function Experience({ experience }) {
             </h2>
           </div>
 
-          <div className="clay clay-sage flex gap-3 p-5 text-clay-light">
+          <div className="clay clay-sage flex gap-3 p-5 text-[#fff4ea]">
             <Sparkles className="mt-0.5 shrink-0 text-[#f8d5c5]" size={18} />
             <p className="font-body text-sm leading-relaxed text-clay-light/90">
               I work where products meet people—building responsive web
