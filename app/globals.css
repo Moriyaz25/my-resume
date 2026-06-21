@@ -155,27 +155,6 @@
     @apply font-mono text-xs uppercase tracking-[0.2em] text-kiln/80 mb-3 block;
   }
 
-  .theme-switch {
-    @apply relative inline-flex h-12 items-center overflow-hidden rounded-full border
-      border-white/60 bg-clay-light/55 font-body shadow-clay-out-sm transition-all
-      duration-300 hover:-translate-y-0.5 active:scale-[0.98];
-  }
-
-  .theme-switch::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(232, 100, 60, 0.08));
-    opacity: 0.9;
-    transition: opacity 300ms ease;
-  }
-
-  .theme-switch-thumb {
-    @apply absolute left-1.5 top-1.5 z-20 grid h-9 w-9 place-items-center rounded-full
-      bg-kiln text-clay-light shadow-[0_10px_22px_rgba(232,100,60,0.34)]
-      transition-transform duration-500 ease-out;
-  }
-
   html.dark .clay {
     background: linear-gradient(145deg, rgba(45, 42, 38, 0.96), rgba(25, 27, 30, 0.96));
     border-color: rgba(255, 255, 255, 0.1);
@@ -242,21 +221,4 @@
       -2px -2px 8px rgba(255, 121, 80, 0.1);
   }
 
-  html.dark .theme-switch {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(38, 40, 44, 0.76);
-    box-shadow: 7px 8px 18px rgba(0, 0, 0, 0.3),
-      -4px -4px 12px rgba(255, 255, 255, 0.04);
-  }
-
-  html.dark .theme-switch::before {
-    background: linear-gradient(135deg, rgba(255, 121, 80, 0.14), rgba(210, 179, 226, 0.1));
-  }
-
-  html.dark .theme-switch-thumb {
-    background: linear-gradient(145deg, #2f3238, #17191d);
-    color: rgb(var(--color-lavender));
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.42),
-      inset 1px 1px 0 rgba(255, 255, 255, 0.12);
-  }
 }

@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import { Menu, Moon, Sun, X } from "lucide-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -66,17 +65,24 @@ export default function Navbar() {
             Let's talk
           </a>
 
-          <div className="hidden md:block">
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
-          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              onClick={toggleTheme}
+              className="clay-sm grid h-11 w-11 place-items-center text-ink transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+            >
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
 
-          <button
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 rounded-clay-sm shadow-clay-out-sm"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+            <button
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen((v) => !v)}
+              className="md:hidden p-2 rounded-clay-sm shadow-clay-out-sm"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {open && (
@@ -98,9 +104,6 @@ export default function Navbar() {
             >
               Let's talk
             </a>
-            <div className="mt-2">
-              <ThemeToggle theme={theme} onToggle={toggleTheme} showLabel />
-            </div>
           </div>
         )}
       </nav>
