@@ -1,5 +1,6 @@
 const { NextResponse } = require("next/server");
 const { prisma } = require("@/lib/prisma");
+const { sendContactEmail } = require("@/lib/mail");
 const { contactSchema } = require("@/lib/validation");
 
 async function POST(request) {
@@ -18,7 +19,16 @@ async function POST(request) {
       data: { name, email, message },
     });
 
-    return NextResponse.json({ success: true, id: saved.id }, { status: 201 });
+    let emailSent = false;
+
+    try {
+      const result = await sendContactEmail({ name, email, message });
+      emailSent = !result.skipped;
+    } catch (mailError) {
+      console.error("Contact email error:", mailError);
+    }
+
+    return NextResponse.json({ success: true, id: saved.id, emailSent }, { status: 201 });
   } catch (err) {
     console.error("Contact form error:", err);
     return NextResponse.json(
