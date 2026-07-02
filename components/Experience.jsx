@@ -43,7 +43,7 @@ export default function Experience({ experience }) {
 
           <div className="clay clay-sage flex gap-3 p-5 text-[#fff4ea]">
             <Sparkles className="mt-0.5 shrink-0 text-[#f8d5c5]" size={18} />
-            <p className="font-body text-sm leading-relaxed text-clay-light/90">
+            <p className="font-body text-sm leading-relaxed text-[#fff4ea]/90">
               I work where products meet people—building responsive web
               experiences, shaping digital campaigns, and strengthening
               software through practical engineering.
